@@ -7,14 +7,23 @@
   </head>
   <body>
     <header>
-      <h1>{% block title %}{% endblock %}</h1>
+      <h1>diversite.lu</h1>
+      <nav>
+	<ul>
+	  <li><a href="/">Accueil</a></li>
+	  <li><a href="/apropos/">A propos</a></li>
+	  <li><a href="/diagnostic/">Diagnostic</a></li>
+	  <li><a href="/actions/">Actions</a></li>
+	  <li><a href="/stats/">Statistiques</a></li>
+	</ul>
+      </nav>
     </header>
 
     {% block content %}
     {% endblock %}
     
     <footer>
-      NoData @ Lux4Good - 2018
+      NoData @ Lux4Good - 2018 - IMS
     </footer>
   </body>
 </html>
