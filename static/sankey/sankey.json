@@ -1,0 +1,120 @@
+{
+"links": 
+[
+  {
+    "source": "Pratiques RH",
+    "target": "Il y a Peu de planification",
+    "value": "0.3",
+    "selected": "true
+  },
+  {
+    "source": "Il y a Peu de planification",
+    "target": "Bien être des collaborateurs",
+    "value": "0.3"
+  },
+  {
+    "source": "Pratiques RH",
+    "target": "Descriptif de poste basé sur un référentiel de compétences",
+    "value": "0.3"
+  },
+  {
+    "source": "Descriptif de poste basé sur un référentiel de compétences",
+    "target": "Attrait pour l'entreprise",
+    "value": "0.2"
+  },
+  {
+    "source": "Pratiques RH",
+    "target": "Participation à des salons de recrutement dédiés à la diversité",
+    "value": "0.3"
+  },
+  {
+    "source": "Participation à des salons de recrutement dédiés à la diversité",
+    "target": "Bien être des collaborateurs",
+    "value": "0.6"
+  },
+  {
+    "source": "Participation à des salons de recrutement dédiés à la diversité",
+    "target": "Attrait pour l'entreprise",
+    "value": "0.3"
+  },
+  {
+    "source": "Conception du lien de subordination",
+    "target": "Décentralisation",
+    "value": "0.5"
+  },
+  {
+    "source": "Décentralisation",
+    "target": "Vision partagée",
+    "value": "0.8"
+  },
+  {
+    "source": "Décentralisation",
+    "target": "Bien être des collaborateurs",
+    "value": "0.2"
+  },
+  {
+    "source": "Leadership",
+    "target": "Vision partagée",
+    "value": "0.1"
+  },
+  {
+    "source": "Intégration et culture",
+    "target": "Culture d’entreprise forte",
+    "value": "0.8"
+  },
+  {
+    "source": "Culture d’entreprise forte",
+    "target": "Pérénité",
+    "value": "0.4"
+  },
+  {
+    "source": "Centrage sur le long terme",
+    "target": "Pérénité",
+    "value": "0.6"
+  },
+  {
+    "source": "Culture d’entreprise forte",
+    "target": "Attrait pour l'entreprise",
+    "value": "0.2"
+  },
+  {
+    "source": "Formation",
+    "target": "Centrage sur le long terme",
+    "value": "0.3"
+  },
+  {
+    "source": "Formation",
+    "target": "Centrée sur le savoir-être",
+    "value": "0.5"
+  },
+  {
+    "source": "Centrée sur le savoir-être",
+    "target": "Attrait pour l'entreprise",
+    "value": "0.3"
+  }
+]
+,
+"nodes": [
+
+{"name":"Pratiques RH", "type": "root"},
+    {"name":"Il y a Peu de planification"},
+    {"name":"Descriptif de poste basé sur un référentiel de compétences"},
+    {"name":"Participation à des salons de recrutement dédiés à la diversité"},
+{"name":"Bien être des collaborateurs", "type": "tail"},
+
+{"name": "Conception du lien de subordination", "type": "root" },
+    {"name":"Décentralisation"},
+    {"name":"Leadership"},
+
+{"name":"Intégration et culture", "type": "root"},
+    {"name":"Culture d’entreprise forte"},
+{"name":"Attrait pour l'entreprise", "type": "tail"},
+
+{"name":"Pérénité", "type": "tail"},
+
+{"name":"Formation", "type": "root"},
+    {"name":"Centrage sur le long terme"},
+    {"name":"Centrée sur le savoir-être"},
+{"name":"Attrait pour l'entreprise", "type": "tail"},
+{"name":"Vision partagée", "type": "tail" }
+] }
