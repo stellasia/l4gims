@@ -5,9 +5,9 @@
 {% block content %}
 
 <section>
-  <form method="post" class="diag">{% csrf_token %}
+  <form method="post" class="diag" action="/stats/" >{% csrf_token %}
     <div class="block form_container" id="block_1">
-      <h3 class="block" id="block_title_1">Plan d'action</h3>
+      <h3 class="block" id="block_title_1">Définition d'un nouveau plan d'action</h3>
 
     <div class="block form_container" id="block_1">
 
@@ -70,7 +70,7 @@
           {% endif %}
         </div>
       </div>
-
+ 
       <div id="question_2" class="form-group">
         <div class="libelle">
           <label class="control-label" for="{{ form.comment.id_for_label }}">
@@ -102,7 +102,7 @@
       </div>
 
 
-    <input type="submit">
+    <input type="submit" value="Voir l'impact" >
   </form>
 </section>
 {% endblock %}

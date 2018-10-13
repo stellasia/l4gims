@@ -110,6 +110,10 @@ h3.simple {
     color: #E9235E;    
 }
 
+form input {
+    line-height: 1.7em;
+}
+
 form input[type="submit"] {
     background: #E9235E;    
     color: white;
@@ -120,10 +124,6 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background: #CC0033;
-}
-
-form input {
-    line-height: 1.7em;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -146,6 +146,12 @@ form .form-group {
 
 form .libelle {
     font-weight: bold;
+}
+
+form .libelle span {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.8em;
 }
 
 form li {

@@ -6,6 +6,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.ActionsView.as_view()),
+    path('', views.NewActionsView.as_view()),
     path('merci/', TemplateView.as_view(template_name="merci.html")),
+    path('liste/', views.ActionListView.as_view()),
+    
 ]

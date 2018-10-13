@@ -79,7 +79,7 @@ class QuestionsForm(forms.Form):
     company_name = forms.CharField(label="Nom de l'entreprise", max_length=250)
 
     sector = forms.ChoiceField(
-        label="Votre structure appartient",
+        label="Votre structure appartient...",
         choices=SECTOR,
         widget=forms.RadioSelect
     )
@@ -90,7 +90,8 @@ class QuestionsForm(forms.Form):
     )
 
     num_employees = forms.IntegerField(
-        label="Au 1er janvier 2018, combien de salariés compte votre organisation au Luxembourg (personnes dirigeantes, collaborateurs sous CDD et CDI, travailleurs intérimaires, apprentis, stagiaires, élèves et étudiants inclus) ?",
+        label="Nombre de salariés au Luxembourg au 1er janvier 2018",
+        help_text="(personnes dirigeantes, collaborateurs sous CDD et CDI, travailleurs intérimaires, apprentis, stagiaires, élèves et étudiants inclus)",
         min_value=1,
         max_value=1000000,
     )
