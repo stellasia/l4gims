@@ -1,119 +1,131 @@
 {
-"links": 
+"links":
+
 [
   {
-    "source": "Pratiques RH",
-    "target": "Il y a Peu de planification",
-    "value": "0.3"
+    "source": "Gala culturel",
+    "target": "RH",
+    "value": "0.8"
   },
   {
-    "source": "Il y a Peu de planification",
-    "target": "Bien être des collaborateurs",
-    "value": "0.3"
-  },
-  {
-    "source": "Pratiques RH",
-    "target": "Descriptif de poste basé sur un référentiel de compétences",
-    "value": "0.3"
-  },
-  {
-    "source": "Descriptif de poste basé sur un référentiel de compétences",
-    "target": "Attrait pour l'entreprise",
+    "source": "Hackathon Handicap",
+    "target": "RH",
     "value": "0.2"
   },
   {
-    "source": "Pratiques RH",
-    "target": "Participation à des salons de recrutement dédiés à la diversité",
+    "source": "Hackathon Handicap",
+    "target": "Communication",
     "value": "0.3"
   },
   {
-    "source": "Participation à des salons de recrutement dédiés à la diversité",
-    "target": "Bien être des collaborateurs",
-    "value": "0.6"
-  },
-  {
-    "source": "Participation à des salons de recrutement dédiés à la diversité",
-    "target": "Attrait pour l'entreprise",
+    "source": "Petit Dej Mobilité interne",
+    "target": "Communication",
     "value": "0.3"
   },
   {
-    "source": "Conception du lien de subordination",
-    "target": "Décentralisation",
+    "source": "Petit Dej Mobilité interne",
+    "target": "RH",
+    "value": "0.2"
+  },
+  {
+    "source": "RH",
+    "target": "Égalité homme/femme",
     "value": "0.5"
   },
   {
-    "source": "Décentralisation",
-    "target": "Vision partagée",
+    "source": "RH",
+    "target": "Accès aux personnes avec un handicap",
+    "value": "0.5"
+  },
+  {
+    "source": "RH",
+    "target": "Représentation raciale",
+    "value": "0.5"
+  },
+  {
+    "source": "RH",
+    "target": "Promotions non discriminatoires",
+    "value": "0.3"
+  },
+  {
+    "source": "Mesure répartition Homme Femme",
+    "target": "Communication",
+    "value": "0.5"
+  },
+  {
+    "source": "Communication",
+    "target": "Accès aux personnes avec un handicap",
+    "value": "0.5"
+  },
+  {
+    "source": "Communication",
+    "target": "Répartition Junior/Sénior",
+    "value": "0.3"
+  },
+  {
+    "source": "Communication",
+    "target": "Crèches",
     "value": "0.8"
   },
   {
-    "source": "Décentralisation",
-    "target": "Bien être des collaborateurs",
-    "value": "0.2"
+    "source": "Mesure répartition Homme Femme",
+    "target": "Juridique",
+    "value": "0.5"
   },
   {
-    "source": "Leadership",
-    "target": "Vision partagée",
-    "value": "0.1"
+    "source": "Juridique",
+    "target": "Égalité homme/femme",
+    "value": "0.6"
   },
   {
-    "source": "Intégration et culture",
-    "target": "Culture d’entreprise forte",
-    "value": "0.8"
-  },
-  {
-    "source": "Culture d’entreprise forte",
-    "target": "Pérénité",
+    "source": "Juridique",
+    "target": "Télétravail",
     "value": "0.4"
   },
   {
-    "source": "Centrage sur le long terme",
-    "target": "Pérénité",
-    "value": "0.6"
-  },
-  {
-    "source": "Culture d’entreprise forte",
-    "target": "Attrait pour l'entreprise",
+    "source": "Juridique",
+    "target": "Représentation raciale",
     "value": "0.2"
   },
   {
-    "source": "Formation",
-    "target": "Centrage sur le long terme",
-    "value": "0.3"
+    "source": "Brown Bag Session Télétravail",
+    "target": "IT",
+    "value": "0.2"
   },
   {
-    "source": "Formation",
-    "target": "Centrée sur le savoir-être",
-    "value": "0.5"
+    "source": "Brown Bag Session Télétravail",
+    "target": "Juridique",
+    "value": "0.6"
   },
   {
-    "source": "Centrée sur le savoir-être",
-    "target": "Attrait pour l'entreprise",
+    "source": "IT",
+    "target": "Télétravail",
+    "value": "0.6"
+  },
+  {
+    "source": "IT",
+    "target": "Répartition Junior/Sénior",
     "value": "0.3"
   }
 ]
 ,
 "nodes": [
 
-{"name":"Pratiques RH", "type": "root"},
-    {"name":"Il y a Peu de planification"},
-    {"name":"Descriptif de poste basé sur un référentiel de compétences"},
-    {"name":"Participation à des salons de recrutement dédiés à la diversité"},
-{"name":"Bien être des collaborateurs", "type": "tail"},
-
-{"name": "Conception du lien de subordination", "type": "root" },
-    {"name":"Décentralisation"},
-    {"name":"Leadership"},
-
-{"name":"Intégration et culture", "type": "root"},
-    {"name":"Culture d’entreprise forte"},
-{"name":"Attrait pour l'entreprise", "type": "tail"},
-
-{"name":"Pérénité", "type": "tail"},
-
-{"name":"Formation", "type": "root"},
-    {"name":"Centrage sur le long terme"},
-    {"name":"Centrée sur le savoir-être"},
-{"name":"Attrait pour l'entreprise", "type": "tail"},
-{"name":"Vision partagée", "type": "tail" }
+{ "name": "Accès aux personnes avec un handicap", "type": "tail" },
+{ "name": "Brown Bag Session Télétravail", "type": "root" },
+{ "name": "Communication" },
+{ "name": "Crèches", "type": "tail" },
+{ "name": "Gala culturel", "type": "root" },
+{ "name": "Hackathon Handicap", "type": "root" },
+{ "name": "IT" },
+{ "name": "Juridique" },
+{ "name": "Mesure répartition Homme Femme", "type": "root" },
+{ "name": "Petit Dej Mobilité interne", "type": "root" },
+{ "name": "Promotions non discriminatoires", "type": "tail" },
+{ "name": "RH" },
+{ "name": "Recrutement neutre", "type": "tail" },
+{ "name": "Représentation raciale", "type": "tail" },
+{ "name": "Répartition Junior/Sénior", "type": "tail" },
+{ "name": "Télétravail", "type": "tail" },
+{ "name": "Égalité homme/femme", "type": "tail" }
 ] }
