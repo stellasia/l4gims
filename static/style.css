@@ -13,6 +13,9 @@ body {
 
 header h1 {
     color: #E9235E;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 100px;
 }
 
 .content a {
@@ -67,7 +70,30 @@ nav ul li a:hover {
 footer {
     margin-top: 10px;
     border-top: 1px solid black;
+    text-align: center;
 }
+
+footer .logos img {
+    display: inline-block;
+    line-height: 200px;    
+}
+
+.quote {
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+    margin: 50px auto;
+    position: relative;
+}
+.quote:before {
+      content: '\201C';
+      position: absolute;
+      top: -0.3em;
+      left: -0.12em;
+      color: #E9235E;
+      font-size: 6em;
+      z-index: 10;
+   }
 
 form {
     width: 90%;
