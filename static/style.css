@@ -1,7 +1,113 @@
-h1 {
-    color: blue;
+html {
+    background: #bbb;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    color: red;
+    width: 900px;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+}
+
+header h1 {
+    color: #E9235E;
+}
+
+nav {
+    background-color: #E9235E;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #816F47;
+    height: 55px;
+    /*margin: 202px 48px 0 0;*/
+    width: 900px;
+}
+
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    border: none;
+    font-size: 12px;
+    width: 94px;
+    padding: 0 5px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;    
+}
+
+nav ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+}
+
+nav ul li:hover {
+    background-color: #CC0033;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    margin-top: 10px;
+    border-top: 1px solid black;
+}
+
+form.diag {
+    width: 90%;
+    margin: auto;
+}
+
+form.diag h3 {
+    color: #E9235E;    
+}
+
+form.diag input[type="submit"] {
+    background: #E9235E;    
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form.diag input[type="submit"]:hover {
+    background: #CC0033;
+}
+
+form.diag input {
+    line-height: 1.7em;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+form.diag ul {
+    list-style: none;
+}
+
+form.diag .form-group {
+    margin: 20px;
+}
+
+form.diag .libelle {
+    font-weight: bold;
+}
+
+form.diag li {
+    line-height: 2em;
 }

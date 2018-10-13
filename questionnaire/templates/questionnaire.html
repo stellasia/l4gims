@@ -3,8 +3,308 @@
 {% block title %}Questionnaire diversité{% endblock %}
   
 {% block content %}
-<form method="post" action="/">{% csrf_token %}
-{{ form }}
-<input type="submit">
-</form>
+<section>
+  <form method="post" class="diag", action="/diagnostic/">{% csrf_token %}
+
+    <div class="block form_container" id="block_1">
+
+      <h3 class="block" id="block_title_1">1/4 : Caractéristiques de l'organisation</h3>
+
+      <div class="content-progress" >
+        <div class="progress progress-bar-striped" id="progress_1" style="width:0%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" role="progressbar"><span>25%</span></div>
+      </div>
+
+      <div id="question_0" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.company_name.id_for_label }}">
+            {{ form.company_name.label }}
+            {% if form.company_name.help_text %}<span>{{ form.company_name.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.company_name }}
+          {% if form.company_name.errors %}
+          {{ form.company_name.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_1" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.sector.id_for_label }}">
+            {{ form.sector.label }}
+            {% if form.sector.help_text %}<span>{{ form.sector.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.sector }}
+          {% if form.sector.errors %}
+          {{ form.sector.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_2" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.activity.id_for_label }}">
+            {{ form.activity.label }}
+            {% if form.activity.help_text %}<span>{{ form.activity.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.activity }}
+          {% if form.activity.errors %}
+          {{ form.activity.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_3" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employees.id_for_label }}">
+            {{ form.num_employees.label }}
+            {% if form.num_employees.help_text %}<span>{{ form.num_employees.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employees }}
+          {% if form.num_employees.errors %}
+          {{ form.num_employees.errors }}
+          {% endif %}
+        </div>
+      </div>
+   
+      <div id="question_4" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_female.id_for_label }}">
+            {{ form.num_employee_female.label }}
+            {% if form.num_employee_female.help_text %}<span>{{ form.num_employee_female.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_female }}
+          {% if form.num_employee_female.errors %}
+          {{ form.num_employee_female.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_5" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_female.id_for_label }}">
+            {{ form.num_contract_interim.label }}
+            {% if form.num_contract_interim.help_text %}<span>{{ form.num_contract_interim.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_contract_interim }}
+          {% if form.num_contract_interim.errors %}
+          {{ form.num_contract_interim.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_6" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_contract_temporary.id_for_label }}">
+            {{ form.num_contract_temporary.label }}
+            {% if form.num_contract_temporary.help_text %}<span>{{ form.num_contract_temporary.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_contract_temporary }}
+          {% if form.num_contract_temporary.errors %}
+          {{ form.num_contract_temporary.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_7" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_contract_permanent.id_for_label }}">
+            {{ form.num_contract_permanent.label }}
+            {% if form.num_contract_permanent.help_text %}<span>{{ form.num_contract_permanent.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_contract_permanent }}
+          {% if form.num_contract_permanent.errors %}
+          {{ form.num_contract_permanent.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_8" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_disabled.id_for_label }}">
+            {{ form.num_employee_disabled.label }}
+            {% if form.num_employee_disabled.help_text %}<span>{{ form.num_employee_disabled.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_disabled }}
+          {% if form.num_employee_disabled.errors %}
+          {{ form.num_employee_disabled.errors }}
+          {% endif %}
+        </div>
+      </div>
+      
+      <div id="question_9" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_redeployed.id_for_label }}">
+            {{ form.num_employee_redeployed.label }}
+            {% if form.num_employee_redeployed.help_text %}<span>{{ form.num_employee_redeployed.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_redeployed }}
+          {% if form.num_employee_redeployed.errors %}
+          {{ form.num_employee_redeployed.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_10" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_living_in_lux.id_for_label }}">
+            {{ form.num_employee_living_in_lux.label }}
+            {% if form.num_employee_living_in_lux.help_text %}<span>{{ form.num_employee_living_in_lux.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_living_in_lux }}
+          {% if form.num_employee_living_in_lux.errors %}
+          {{ form.num_employee_living_in_lux.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_11" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_young.id_for_label }}">
+            {{ form.num_employee_young.label }}
+            {% if form.num_employee_young.help_text %}<span>{{ form.num_employee_young.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_young }}
+          {% if form.num_employee_young.errors %}
+          {{ form.num_employee_young.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_10" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.num_employee_old.id_for_label }}">
+            {{ form.num_employee_old.label }}
+            {% if form.num_employee_old.help_text %}<span>{{ form.num_employee_old.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.num_employee_old }}
+          {% if form.num_employee_old.errors %}
+          {{ form.num_employee_old.errors }}
+          {% endif %}
+        </div>
+      </div>
+	
+      </div>
+
+    <div class="block form_container" id="block_1">
+
+      <h3 class="block" id="block_title_1">2/4 : Définition de la politique de la diversité</h3>
+
+      <div class="content-progress" >
+        <div class="progress progress-bar-striped" id="progress_1" style="width:0%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar"><span>50%</span></div>
+      </div>
+
+      <div id="question_1" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.has_diversity_politics.id_for_label }}">
+            {{ form.has_diversity_politics.label }}
+            {% if form.has_diversity_politics.help_text %}<span>{{ form.has_diversity_politics.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.has_diversity_politics }}
+          {% if form.has_diversity_politics.errors %}
+          {{ form.has_diversity_politics.errors }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question_2" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.actions_for_diversity.id_for_label }}">
+            {{ form.actions_for_diversity.label }}
+            {% if form.actions_for_diversity.help_text %}<span>{{ form.actions_for_diversity.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.actions_for_diversity }}
+          {% if form.actions_for_diversity.errors %}
+          {{ form.actions_for_diversity.errors }}
+          {% endif %}
+        </div>
+      </div>
+	
+      </div>
+
+
+
+         <div class="block form_container" id="block_1">
+
+	   <h3 class="block" id="block_title_1">3/4 : Recrutement et sélection</h3>
+
+      <div class="content-progress" >
+        <div class="progress progress-bar-striped" id="progress_1" style="width:0%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar"><span>75%</span></div>
+      </div>
+
+      <div id="question_1" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.process.id_for_label }}">
+            {{ form.process.label }}
+            {% if form.process.help_text %}<span>{{ form.process.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.process }}
+          {% if form.process.errors %}
+          {{ form.process.errors }}
+          {% endif %}
+        </div>
+	
+      </div>
+
+
+    <div class="block form_container" id="block_1">
+
+      <h3 class="block" id="block_title_1">4/4 : Bien-être et environnement</h3>
+
+      <div class="content-progress" >
+        <div class="progress progress-bar-striped" id="progress_1" style="width:0%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar"><span>100%</span></div>
+      </div>
+
+      <div id="question_1" class="form-group">
+        <div class="libelle">
+          <label class="control-label" for="{{ form.work_conditions.id_for_label }}">
+            {{ form.work_conditions.label }}
+            {% if form.work_conditions.help_text %}<span>{{ form.work_conditions.help_text }}</span>{% endif %}
+          </label>
+        </div>
+        <div class="answer">
+          {{ form.work_conditions }}
+          {% if form.work_conditions.errors %}
+          {{ form.work_conditions.errors }}
+          {% endif %}
+        </div>
+	
+      </div>
+      
+      
+      
+    <input type="submit">
+  </form>
+</section>
 {% endblock %}
