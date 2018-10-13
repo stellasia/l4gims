@@ -56,6 +56,58 @@ nav ul li a:hover {
 }
 
 
-form.diag {
+footer {
+    margin-top: 10px;
+    border-top: 1px solid black;
+}
 
+form.diag {
+    width: 90%;
+    margin: auto;
+}
+
+form.diag h3 {
+    color: #E9235E;    
+}
+
+form.diag input[type="submit"] {
+    background: #E9235E;    
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form.diag input[type="submit"]:hover {
+    background: #CC0033;
+}
+
+form.diag input {
+    line-height: 1.7em;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+form.diag ul {
+    list-style: none;
+}
+
+form.diag .form-group {
+    margin: 20px;
+}
+
+form.diag .libelle {
+    font-weight: bold;
+}
+
+form.diag li {
+    line-height: 2em;
 }

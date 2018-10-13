@@ -69,6 +69,13 @@ class QuestionsForm(forms.Form):
         (9, "Partenariats avec des structures dédiées à l’emploi proches des publics discriminés (Adem, associations d’insertions,  associations spécialisées, ..."),
     )
 
+    YES_NO = (
+        #(None, "----"),
+        (True, "Oui"),
+        (False, "Non"),
+    )
+
+    
     company_name = forms.CharField(label="Nom de l'entreprise", max_length=250)
 
     sector = forms.ChoiceField(
@@ -122,8 +129,10 @@ class QuestionsForm(forms.Form):
 
 
     # section 2
-    has_diversity_politics = forms.BooleanField(
+    has_diversity_politics = forms.ChoiceField(
         label="Votre structure a-t-elle défini une politique de gestion de la diversité ?",
+        choices=YES_NO,
+        widget=forms.RadioSelect        
     )
     actions_for_diversity = forms.ChoiceField(
         label="Vos actions en faveur de la diversité concernent:",
@@ -144,3 +153,9 @@ class QuestionsForm(forms.Form):
         choices=WORK_CONDITIONS,
         widget=forms.RadioSelect
     )
+
+
+    def validate(self, data):
+        # TODO: check that number of female is less than number of employees
+        # and idem for disabled, etc...
+        return data
