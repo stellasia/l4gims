@@ -22,10 +22,16 @@ class ActionsForm(forms.Form):
         (10, "Relations professionnelles"),
     )
 
-    action = forms.CharField(label="Actions (caractériser)", widget=forms.Textarea)
-    diversity_type = forms.ChoiceField(label="Type de diversité", choices=DIVERSITY_TYPE, widget=forms.RadioSelect)
+    STATUS = (
+        (1, "Prévu"),
+        (2, "En cours"),
+        (3, "Fini"),
+    )
+    
+    action = forms.CharField(label="Actions (caractériser)", max_length=250)
+    diversity_type = forms.ChoiceField(label="Type de diversité", choices=DIVERSITY_TYPE)
 
-    processus = forms.ChoiceField(label="Processus RH", choices=PROCESSUS, widget=forms.RadioSelect)
-    planned_on = forms.DateField(initial=datetime.date.today, widget=forms.SelectDateWidget)
-    comment = forms.CharField(widget=forms.Textarea)
-    status = forms.CharField(widget=forms.Textarea)
+    processus = forms.ChoiceField(label="Processus RH impliqué", choices=PROCESSUS)
+    planned_on = forms.DateField(initial=datetime.date.today, label="Plannifée le", widget=forms.HiddenInput)
+    comment = forms.CharField(widget=forms.Textarea, label="Commentaire")
+    status = forms.ChoiceField(label="Statut", choices=STATUS)

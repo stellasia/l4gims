@@ -13,6 +13,17 @@ body {
 
 header h1 {
     color: #E9235E;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 100px;
+}
+
+.content a {
+    color: #E9235E;
+}
+
+.content a:hover {
+    color: #CC0033;
 }
 
 nav {
@@ -59,23 +70,47 @@ nav ul li a:hover {
 footer {
     margin-top: 10px;
     border-top: 1px solid black;
+    text-align: center;
 }
 
-form.diag {
+footer .logos img {
+    display: inline-block;
+    line-height: 200px;    
+}
+
+.quote {
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+    margin: 50px auto;
+    position: relative;
+}
+.quote:before {
+      content: '\201C';
+      position: absolute;
+      top: -0.3em;
+      left: -0.12em;
+      color: #E9235E;
+      font-size: 6em;
+      z-index: 10;
+   }
+
+form {
     width: 90%;
     margin: auto;
 }
 
-form.diag h3 {
+form h3 {
     color: #E9235E;    
 }
+
 
 h3.simple {
     padding-left: 1em;
     color: #E9235E;    
 }
 
-form.diag input[type="submit"] {
+form input[type="submit"] {
     background: #E9235E;    
     color: white;
     border: none;
@@ -83,11 +118,11 @@ form.diag input[type="submit"] {
     cursor: pointer;
 }
 
-form.diag input[type="submit"]:hover {
+form input[type="submit"]:hover {
     background: #CC0033;
 }
 
-form.diag input {
+form input {
     line-height: 1.7em;
 }
 
@@ -101,18 +136,28 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-form.diag ul {
+form ul {
     list-style: none;
 }
 
-form.diag .form-group {
+form .form-group {
     margin: 20px;
 }
 
-form.diag .libelle {
+form .libelle {
     font-weight: bold;
 }
 
-form.diag li {
+form li {
     line-height: 2em;
+}
+
+form .error {
+    color: red;
+}
+
+.content-simple {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
 }

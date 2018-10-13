@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Diversité{% endblock %}
   
 {% block content %}
-Une quote et une jolie image
+
+<blockquote class="quote">
+  Le progrès nait de la diversité des cultures et de l'affirmation des personnalités.
+</blockquote>
+
+<img src="{% static 'diversity-day-1440x400.jpg' %}" alt="Image principale" width="900px">
+
 {% endblock %}

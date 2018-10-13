@@ -9,7 +9,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="home.html")),
     path('apropos/', TemplateView.as_view(template_name="about.html")),
     path('diagnostic/', views.QuestionnaireView.as_view()),
-    path('merci/', TemplateView.as_view(template_name="merci.html")),
+    path('ok/', TemplateView.as_view(template_name="ok.html")),
     path('stats/', TemplateView.as_view(template_name="stats.html")),
 
 ]
