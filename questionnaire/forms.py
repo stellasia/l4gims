@@ -134,14 +134,14 @@ class QuestionsForm(forms.Form):
         choices=YES_NO,
         widget=forms.RadioSelect        
     )
-    actions_for_diversity = forms.ChoiceField(
+    actions_for_diversity = forms.MultipleChoiceField(
         label="Vos actions en faveur de la diversité concernent:",
         choices=ACTIONS_FOR_DIVERSITY,
         widget=forms.CheckboxSelectMultiple,
     )
     
     # section 3
-    process = forms.ChoiceField(
+    process = forms.MultipleChoiceField(
         label="Choisissez dans la liste ci-dessous les processus dont dispose votre entreprise",
         choices=PROCESS,
         widget=forms.CheckboxSelectMultiple,

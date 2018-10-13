@@ -15,6 +15,14 @@ header h1 {
     color: #E9235E;
 }
 
+.content a {
+    color: #E9235E;
+}
+
+.content a:hover {
+    color: #CC0033;
+}
+
 nav {
     background-color: #E9235E;
     border-radius: 3px;
@@ -61,16 +69,16 @@ footer {
     border-top: 1px solid black;
 }
 
-form.diag {
+form {
     width: 90%;
     margin: auto;
 }
 
-form.diag h3 {
+form h3 {
     color: #E9235E;    
 }
 
-form.diag input[type="submit"] {
+form input[type="submit"] {
     background: #E9235E;    
     color: white;
     border: none;
@@ -78,11 +86,11 @@ form.diag input[type="submit"] {
     cursor: pointer;
 }
 
-form.diag input[type="submit"]:hover {
+form input[type="submit"]:hover {
     background: #CC0033;
 }
 
-form.diag input {
+form input {
     line-height: 1.7em;
 }
 
@@ -96,18 +104,28 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-form.diag ul {
+form ul {
     list-style: none;
 }
 
-form.diag .form-group {
+form .form-group {
     margin: 20px;
 }
 
-form.diag .libelle {
+form .libelle {
     font-weight: bold;
 }
 
-form.diag li {
+form li {
     line-height: 2em;
+}
+
+form .error {
+    color: red;
+}
+
+.content-simple {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
 }

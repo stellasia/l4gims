@@ -4,7 +4,99 @@
 
 {% block content %}
 <form method="post" action="/">{% csrf_token %}
-{{ form.as_p }}
-<input type="submit">
+
+  <div id="question_0" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.action.id_for_label }}">
+        {{ form.action.label }}
+        {% if form.action.help_text %}<span>{{ form.action.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.action }}
+      {% if form.action.errors %}
+      {{ form.action.errors }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div id="question_1" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.diversity_type.id_for_label }}">
+        {{ form.diversity_type.label }}
+        {% if form.diversity_type.help_text %}<span>{{ form.diversity_type.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.diversity_type }}
+      {% if form.diversity_type.errors %}
+      {{ form.diversity_type.errors }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div id="question_2" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.processus.id_for_label }}">
+        {{ form.processus.label }}
+        {% if form.processus.help_text %}<span>{{ form.processus.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.processus }}
+      {% if form.processus.errors %}
+      {{ form.processus.errors }}
+      {% endif %}
+    </div>
+  </div>
+
+  {% comment %}
+  <div id="question_3" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.planned_on.id_for_label }}">
+        {{ form.planned_on.label }}
+        {% if form.planned_on.help_text %}<span>{{ form.planned_on.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.planned_on }}
+      {% if form.planned_on.errors %}
+      {{ form.planned_on.errors }}
+      {% endif %}
+    </div>
+  </div>
+ {% endcomment %}
+  
+  <div id="question_4" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.comment.id_for_label }}">
+        {{ form.comment.label }}
+        {% if form.comment.help_text %}<span>{{ form.comment.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.comment }}
+      {% if form.comment.errors %}
+      {{ form.comment.errors }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div id="question_6" class="form-group">
+    <div class="libelle">
+      <label class="control-label" for="{{ form.status.id_for_label }}">
+        {{ form.status.label }}
+        {% if form.status.help_text %}<span>{{ form.status.help_text }}</span>{% endif %}
+      </label>
+    </div>
+    <div class="answer">
+      {{ form.status }}
+      {% if form.status.errors %}
+      {{ form.status.errors }}
+      {% endif %}
+    </div>
+  </div>
+  
+  <input type="submit">
 </form>
 {% endblock %}

@@ -8,7 +8,7 @@ from .forms import QuestionsForm
 class QuestionnaireView(FormView):
     form_class = QuestionsForm
     template_name = "questionnaire.html"
-    success_url = '/merci/'
+    success_url = '/ok/'
     section_title = "BIEN-ÊTRE ET ENVIRONNEMENT"
 
     def form_valid(self, form):
