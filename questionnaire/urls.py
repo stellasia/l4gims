@@ -10,6 +10,4 @@ urlpatterns = [
     path('apropos/', TemplateView.as_view(template_name="about.html")),
     path('diagnostic/', views.QuestionnaireView.as_view()),
     path('ok/', TemplateView.as_view(template_name="ok.html")),
-    path('stats/', TemplateView.as_view(template_name="stats.html")),
-
 ]

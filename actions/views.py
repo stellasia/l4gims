@@ -9,7 +9,7 @@ from .models import Actions
 class NewActionsView(FormView):
     form_class = ActionsForm
     template_name = "actions.html"
-    success_url = '/merci/'
+    success_url = '/actions/merci/'
 
     def form_valid(self, form):
         return super().form_valid(form)

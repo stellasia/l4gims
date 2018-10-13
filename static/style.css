@@ -71,6 +71,7 @@ footer {
     margin-top: 10px;
     border-top: 1px solid black;
     text-align: center;
+    font-size: 0.5em;
 }
 
 footer .logos img {
@@ -166,4 +167,16 @@ form .error {
     width: 90%;
     margin: 50px auto;
     text-align: center;
+}
+
+.badges {
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+}
+
+.badge img {
+    width: 200px;
 }
