@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3 class="simple">Radar:</h3>
+<iframe style="height:50%;width:100%;" src="/static/radar/radar_2.html"></iframe>
+
+<h3 class="simple">Mes badges:</h3>
+
+<div class="badges-box">
+
+  <div class="badge">
+    <img src="{% static 'badges/gender_gold.png' %}" alt="">
+  </div>
+
+  <div class="badge">
+    <img src="{% static 'badges/age_bronze.png' %}" alt="">
+  </div>
+
+  <div class="badge">
+    <img src="{% static 'badges/race_silver.png' %}" alt="">
+  </div>
+  
+</div>
+
+{% endblock %}
