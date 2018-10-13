@@ -180,3 +180,11 @@ form .error {
 .badge img {
     width: 200px;
 }
+
+.chatbot {
+    position:fixed;
+    width:50%;
+    height:300px;
+    bottom:0px;
+    right: 0px;
+}

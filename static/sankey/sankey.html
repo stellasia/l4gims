@@ -34,6 +34,7 @@
 <p id="chart">
  
 <script src="http://d3js.org/d3.v3.js"></script>
+
 <script src="sankey.js"></script>
 <script>
   
@@ -45,8 +46,10 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) + " " + units; },
-    color = d3.scale.category20c();
- 
+    // color = d3.scale.PuBuGn();
+    // color = d3.scale.ordinal().range(["#1f77b4", "#ff7f0e"]);
+   color = d3.scale.ordinal().range(["#20B2AA", "#ff7f0e", "#8DEEEE"]);
+
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
