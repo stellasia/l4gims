@@ -70,6 +70,11 @@ form.diag h3 {
     color: #E9235E;    
 }
 
+h3.simple {
+    padding-left: 1em;
+    color: #E9235E;    
+}
+
 form.diag input[type="submit"] {
     background: #E9235E;    
     color: white;
