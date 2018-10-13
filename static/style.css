@@ -185,6 +185,6 @@ form .error {
     position:fixed;
     width:50%;
     height:300px;
-    bottom:0px;
-    right: 0px;
+    bottom:220px;
+    right: -400px;
 }
