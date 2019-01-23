@@ -4,7 +4,7 @@
   
 {% block content %}
 <section>
-  <form method="post" class="diag", action="/diagnostic/">{% csrf_token %}
+  <form method="post" class="diag", action="">{% csrf_token %}
 
     <div class="block form_container" id="block_1">
 
@@ -228,8 +228,8 @@
         </div>
         <div class="answer">
           {{ form.has_diversity_politics }}
-          {% if form.has_diversity_politics.errors %}
-          {{ form.has_diversity_politics.errors }}
+          {% if form.has_diversity_politics.errors %}
+          {{ form.has_diversity_politics.errors }}
           {% endif %}
         </div>
       </div>
