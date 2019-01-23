@@ -10,6 +10,8 @@ class QuestionsForm(forms.ModelForm):
         widgets = {
             "actions_for_diversity": forms.CheckboxSelectMultiple(),
             "process": forms.CheckboxSelectMultiple(),
+            "work_conditions": forms.CheckboxSelectMultiple(),
+            "has_diversity_politics": forms.RadioSelect(),
         }
 
     def validate(self, data):

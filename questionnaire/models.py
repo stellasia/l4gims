@@ -60,6 +60,7 @@ class Questionnaire(models.Model):
     has_diversity_politics = models.IntegerField(
         verbose_name="Votre structure a-t-elle défini une politique de gestion de la diversité ?",
         choices=YES_NO,
+        default=0,
     )
     actions_for_diversity = ArrayField(
         models.IntegerField(),
@@ -75,7 +76,8 @@ class Questionnaire(models.Model):
     )
 
     # section 4
-    work_conditions = models.IntegerField(
+    work_conditions = ArrayField(
+        models.IntegerField(),
         verbose_name="Votre structure a-t-elle mis en place des conditions de travail favorisant le bien-être des collaborateurs ?",
         choices=WORK_CONDITIONS,
     )
