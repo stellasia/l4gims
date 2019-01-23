@@ -4,6 +4,15 @@
   
 {% block content %}
 <section>
+
+    <p></p>
+
+    {% if form.errors %}
+    <div class="errorlist">
+	Le formulaire comporte des erreurs, merci de vérifier ci-dessous.
+    </div>
+    {% endif %}
+
   <form method="post" class="diag", action="">{% csrf_token %}
 
     <div class="block form_container" id="block_1">

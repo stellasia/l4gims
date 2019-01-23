@@ -165,8 +165,9 @@ form li {
     line-height: 2em;
 }
 
-form .error {
-    color: red;
+.errorlist {
+    background: #ffad33;
+    font-size: 1.1em;
 }
 
 .content-simple {
