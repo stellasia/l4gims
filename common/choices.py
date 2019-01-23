@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
 DIVERSITY_TYPE = (
-    (1, "Genre"), 
-    (2, "Générationnel"),
-    (3, "Culturel"),
-    (4, "Handicap"),
+    (1, "Égalité Homme/Femme"),
+    (2, "Répartition Junior/Sénior"),
+    (3, "Représentation raciale"),
+    (4, "Accès aux personnes avec un handicap"),
+    (5, "Recrutement neutre"),
+    (6, "Promotions non discriminatoires"),
+    (7, "Télétravail"),
+    (8, "Commodités (crêches...)"),
 )
 
 
