@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 
+
 class CurrentStatusView(TemplateView):
     template_name = "current_status.html"
 

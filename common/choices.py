@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+DIVERSITY_TYPE = (
+    (1, "Genre"), 
+    (2, "Générationnel"),
+    (3, "Culturel"),
+    (4, "Handicap"),
+)
+
+
 WORK_CONDITIONS = (
     (1, "Télétravail"),
     (2, "Horaires flexibles"),

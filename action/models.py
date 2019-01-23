@@ -1,13 +1,9 @@
 from django.db import models
 
+from common.choices import DIVERSITY_TYPE
+
 
 class Action(models.Model):
-    DIVERSITY_TYPE = (
-        (1, "Genre"), 
-        (2, "Générationnel"),
-        (3, "Culturel"),
-        (4, "Handicap"),
-    )
 
     PROCESSUS = (
         (1, "Gestion des effectifs (entrées - sorties)"),
