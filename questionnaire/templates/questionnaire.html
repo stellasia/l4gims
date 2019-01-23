@@ -4,7 +4,16 @@
   
 {% block content %}
 <section>
-  <form method="post" class="diag", action="/diagnostic/">{% csrf_token %}
+
+    <p></p>
+
+    {% if form.errors %}
+    <div class="errorlist">
+	Le formulaire comporte des erreurs, merci de vérifier ci-dessous.
+    </div>
+    {% endif %}
+
+  <form method="post" class="diag", action="">{% csrf_token %}
 
     <div class="block form_container" id="block_1">
 
@@ -228,8 +237,8 @@
         </div>
         <div class="answer">
           {{ form.has_diversity_politics }}
-          {% if form.has_diversity_politics.errors %}
-          {{ form.has_diversity_politics.errors }}
+          {% if form.has_diversity_politics.errors %}
+          {{ form.has_diversity_politics.errors }}
           {% endif %}
         </div>
       </div>
@@ -294,17 +303,18 @@
           </label>
         </div>
         <div class="answer">
-          {{ form.work_conditions }}
-          {% if form.work_conditions.errors %}
-          {{ form.work_conditions.errors }}
-          {% endif %}
+            {{ form.work_conditions }}
+            {% if form.work_conditions.errors %}
+            {{ form.work_conditions.errors }}
+            {% endif %}
         </div>
 	
       </div>
       
       
       
-    <input type="submit">
+      <input type="submit" class="later" value="Enregistrer pour plus tard">
+      <input type="submit" value="Soumettre">
   </form>
 </section>
 

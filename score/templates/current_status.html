@@ -4,16 +4,19 @@
 {% block content %}
 
 <h3 class="simple">Radar:</h3>
-<iframe style="height:50%;width:100%;" src="/static/radar/radar_2.html"></iframe>
+
+{% include "charts/radar.html" %}
 
 <h3 class="simple">Mes badges:</h3>
 
 <div class="badges-box">
 
+  {% for s in data.0 %}
   <div class="badge">
     <img src="{% static 'badges/gender_gold.png' %}" alt="">
   </div>
-
+  {% endfor %}
+  
   <div class="badge">
     <img src="{% static 'badges/age_bronze.png' %}" alt="">
   </div>

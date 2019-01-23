@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Actions entreprises{% endblock %}
+
+{% block content %}
+<h1>Mes actions en cours</h1>
+
+<table>
+    <tr>
+	<th>Nom</th>
+	<th>Date création</th>
+	<th>Type de diversité</th>
+	<th>Processus RH impliqué</th>
+	<th>Planifié pour le</th>
+	<th>Statut</th>
+    </tr>
+    {% for action in object_list %}
+    
+    <tr>
+	<td>{{action.name}}</td>
+	<td>{{action.created_on }}</td>
+	<td>{{action.get_diversity_type_display }}</td>
+	<td>{{action.get_processus_display }}</td>
+	<td>{{action.planned_on }}</td>
+	<td>{{action.status }}</td>
+    </tr>
+    
+    {% endfor %}
+</table>
+{% endblock %}
