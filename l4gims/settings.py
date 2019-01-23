@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'questionnaire',
-    'actions',
+    'action',
     'stats',
 ]
 
@@ -128,6 +128,6 @@ STATICFILES_DIRS = [
 
 
 try:
-    import local_settings
+    from .local_settings import *
 except ImportError:
     pass

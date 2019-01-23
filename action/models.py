@@ -1,7 +1,7 @@
-from django import forms
-import datetime
+from django.db import models
 
-class ActionsForm(forms.Form):
+
+class Action(models.Model):
     DIVERSITY_TYPE = (
         (1, "Genre"), 
         (2, "Générationnel"),
@@ -28,10 +28,11 @@ class ActionsForm(forms.Form):
         (3, "Fini"),
     )
     
-    action = forms.CharField(label="Actions (caractériser)", max_length=250)
-    diversity_type = forms.ChoiceField(label="Type de diversité", choices=DIVERSITY_TYPE)
-
-    processus = forms.ChoiceField(label="Processus RH impliqué", choices=PROCESSUS)
-    planned_on = forms.DateField(initial=datetime.date.today, label="Plannifée pour le")
-    comment = forms.CharField(widget=forms.Textarea, label="Commentaire")
-    status = forms.ChoiceField(label="Statut", choices=STATUS)
+    # Nom Action / Type diversité / Processus RH / Date / Texte libre / Statut
+    created_on = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(unique=True, max_length=128)
+    diversity_type = models.IntegerField(choices=DIVERSITY_TYPE)
+    processus = models.IntegerField(choices=PROCESSUS)
+    planned_on = models.DateField()
+    comment = models.TextField(null=True)
+    status = models.IntegerField(choices=STATUS)

@@ -6,23 +6,23 @@
 {% block content %}
 
 <section>
-  <form method="post" class="diag" action="/actions/" >{% csrf_token %}
+  <form method="post" class="diag" action="" >{% csrf_token %}
     <div class="block form_container" id="block_1">
       <h3 class="block" id="block_title_1">Définition d'un nouveau plan d'action</h3>
 
-    <div class="block form_container" id="block_1">
-
+      <div class="block form_container" id="block_1">
+	  
       <div id="question_0" class="form-group">
         <div class="libelle">
-          <label class="control-label" for="{{ form.action.id_for_label }}">
-            {{ form.action.label }}
-            {% if form.actio.help_text %}<span>{{ form.action.help_text }}</span>{% endif %}
+          <label class="control-label" for="{{ form.name.id_for_label }}">
+            {{ form.name.label }}
+            {% if form.name.help_text %}<span>{{ form.name.help_text }}</span>{% endif %}
           </label>
         </div>
         <div class="answer">
-          {{ form.action }}
-          {% if form.action.errors %}
-          {{ form.action.errors }}
+          {{ form.name }}
+          {% if form.name.errors %}
+          {{ form.name.errors }}
           {% endif %}
         </div>
       </div>
@@ -36,8 +36,8 @@
         </div>
         <div class="answer">
           {{ form.diversity_type }}
-          {% if form.diversity_type.errors %}
-          {{ form.diversity_type.errors }}
+          {% if form.diversity_type.errors %}
+          {{ form.diversity_type.errors }}
           {% endif %}
         </div>
       </div>
@@ -51,8 +51,8 @@
         </div>
         <div class="answer">
           {{ form.processus }}
-          {% if form.processus.errors %}
-          {{ form.processus.errors }}
+          {% if form.processus.errors %}
+          {{ form.processus.errors }}
           {% endif %}
         </div>
       </div>
@@ -66,8 +66,8 @@
         </div>
         <div class="answer">
           {{ form.planned_on }}
-          {% if form.planned_on.errors %}
-          {{ form.planned_on.errors }}
+          {% if form.planned_on.errors %}
+          {{ form.planned_on.errors }}
           {% endif %}
         </div>
       </div>
@@ -81,8 +81,8 @@
         </div>
         <div class="answer">
           {{ form.comment }}
-          {% if form.comment.errors %}
-          {{ form.comment.errors }}
+          {% if form.comment.errors %}
+          {{ form.comment.errors }}
           {% endif %}
         </div>
       </div>
@@ -96,8 +96,8 @@
         </div>
         <div class="answer">
           {{ form.status }}
-          {% if form.status.errors %}
-          {{ form.status.errors }}
+          {% if form.status.errors %}
+          {{ form.status.errors }}
           {% endif %}
         </div>
       </div>
