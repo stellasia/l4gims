@@ -1,5 +1,6 @@
 import random
 
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
 from common.choices import DIVERSITY_TYPE
@@ -10,8 +11,27 @@ from .models import Score
 class ComputeScore(TemplateView):
     template_name = ""
 
-    def get_context_data(self):
-        return {}
+    def get(self, *args, **kwargs):
+        # get questionnaire
+        baro_pk = kwargs.get("baro_pk")
+
+        # compute and save score
+
+        # redirect
+        return redirect("score_view")
+
+
+class UpdateScore(TemplateView):
+    template_name = ""
+
+    def get(self, *args, **kwargs):
+        # get action
+        action_pk = kwargs.get("action_pk")
+
+        # compute and save score
+
+        # redirect
+        return redirect("score_view")
 
 
 class CurrentStatusView(TemplateView):

@@ -7,6 +7,10 @@ class QuestionsForm(forms.ModelForm):
     class Meta:
         model = Questionnaire
         exclude = ['created_on', 'updated_on',]
+        widgets = {
+            "actions_for_diversity": forms.CheckboxSelectMultiple(),
+            "process": forms.CheckboxSelectMultiple(),
+        }
 
     def validate(self, data):
         # TODO: check that number of female is less than number of employees

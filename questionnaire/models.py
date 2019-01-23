@@ -39,7 +39,7 @@ class Questionnaire(models.Model):
     num_contract_permanent = models.IntegerField(
         verbose_name="Nombre de CDI",
     )
-    
+
     num_employee_disabled = models.IntegerField(
         verbose_name="Nombre de salariés ayant le statut de salariés handicapés :",
     )
@@ -62,13 +62,15 @@ class Questionnaire(models.Model):
         choices=YES_NO,
     )
     actions_for_diversity = ArrayField(
-        models.IntegerField(choices=ACTIONS_FOR_DIVERSITY,),
-        verbose_name="Vos actions en faveur de la diversité concernent:",        
+        models.IntegerField(),
+        choices=ACTIONS_FOR_DIVERSITY,
+        verbose_name="Vos actions en faveur de la diversité concernent:",
     )
     
     # section 3
     process = ArrayField(
-        models.IntegerField(choices=PROCESS),
+        models.IntegerField(),
+        choices=PROCESS,
         verbose_name="Choisissez dans la liste ci-dessous les processus dont dispose votre entreprise",
     )
 

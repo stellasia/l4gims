@@ -294,17 +294,18 @@
           </label>
         </div>
         <div class="answer">
-          {{ form.work_conditions }}
-          {% if form.work_conditions.errors %}
-          {{ form.work_conditions.errors }}
-          {% endif %}
+            {{ form.work_conditions }}
+            {% if form.work_conditions.errors %}
+            {{ form.work_conditions.errors }}
+            {% endif %}
         </div>
 	
       </div>
       
       
       
-    <input type="submit">
+      <input type="submit" class="later" value="Enregistrer pour plus tard">
+      <input type="submit" value="Soumettre">
   </form>
 </section>
 
