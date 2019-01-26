@@ -1,7 +1,7 @@
 {% load static %}
 <html>
   <head>
-      <title>Charte de la diversité</title>
+      <title>{% block title %}{% endblock %}</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
@@ -14,9 +14,15 @@
 	      <ul>
 		  <li><a href="/">Accueil</a></li>
 		  <li><a href="/apropos/">A propos</a></li>
-	  <li><a href="/barometre/">Baromètre</a></li>
-	  <li><a href="/score/">Statistiques</a></li>
-	  <li><a href="/action/">Actions</a></li>
+		  <!-- <li><a href="/barometre/">Baromètre</a></li>
+		       <li><a href="/score/">Statistiques</a></li>
+		       <li><a href="/action/">Actions</a></li> -->
+		  {% if request.user.is_anonymous %}
+		  <li><a href="/accounts/login">Connexion</a></li>
+		  {% else %}
+		  <li><a href="/dashboard/">Mon compte</a></li>
+		  <li><a href="/accounts/logout/">Déconnexion</a></li>
+		  {% endif %}
 	</ul>
       </nav>
     </header>
@@ -27,7 +33,7 @@
     </div>
     
     <footer>
-      <p>Porteur de sujet : IMS</p>
+	<p>Porteur de sujet : <a href="http://imslux.lu/">IMS</a></p>
       <div class="logos">
 	<img src="{% static 'LOGO Lux4Good.png' %}" alt="Lux4Good logo" width=80px>
       </div>
