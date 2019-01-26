@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mon dashboard{% endblock %}
+
+{% block content %}
+
+{{ user.fist_name }}
+
+<section>
+    <h2>Derniers utilisateurs enregistrés</h2>
+    {% if last_created_users  %}
+    <table>
+	{% for user in last_created_users %}
+
+	{{ user.username }}
+
+	{% endfor %}
+    </table>
+    {% else %}
+    Pas de données.
+    {% endif %}
+</section>
+
+<section>
+    <h2>Utilisateurs n'ayant pas complété le formulaire</h2>
+    {% if users_no_form %}
+    <table>
+	{% for user in users_no_form %}
+
+	{{ user.username }}
+
+	{% endfor %}
+    </table>
+    {% else %}
+    Pas de données.
+    {% endif %}
+</section>
+
+<section>
+    <h2>Utilisateurs absents depuis longtemps</h2>
+    {% if users_passive %}
+    <table>
+	{% for user in users_passive %}
+
+	{{ user.username }}
+
+	{% endfor %}
+    </table>
+    {% else %}
+    Pas de données.
+    {% endif %}
+</section>
+
+<section>
+    <h2>Score global Luxembourg</h2>
+    
+    {% include "charts/radar.html" %}
+</section>
+{% endblock %}

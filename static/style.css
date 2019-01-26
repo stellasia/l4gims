@@ -35,7 +35,6 @@ nav {
     width: 900px;
 }
 
-
 nav ul {
     list-style: none;
 }
@@ -94,7 +93,31 @@ footer .logos img {
       color: #E9235E;
       font-size: 6em;
       z-index: 10;
-   }
+}
+
+
+.go {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta {
+    display: block;
+    border-radius: 50%;
+    width: 200px;
+    height: 100px;
+    padding: 8px;
+    background: #E9235E;
+    color: white!important;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px auto;
+    text-align: cnter;
+    line-height: 100px; /* hauteur de ligne (identique) */    
+}
 
 form {
     width: 90%;
@@ -104,7 +127,6 @@ form {
 form h3 {
     color: #E9235E;    
 }
-
 
 h3.simple {
     padding-left: 1em;

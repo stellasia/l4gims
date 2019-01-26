@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mon dashboard{% endblock %}
+
+{% block content %}
+
+{{ user.first_name }}
+
+<section>
+    <h2>Score global Luxembourg</h2>
+    
+    {% include "charts/radar.html" %}
+</section>
+{% endblock %}
