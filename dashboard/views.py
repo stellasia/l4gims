@@ -18,7 +18,7 @@ class DashboardHomeView(RedirectView):
         username = user.username
         if "IMS" in user.groups.values_list('name', flat=True):
             return '/dashboard/admin/{username}'.format(username=username)
-        return "/dashboard/{username}".format(username=username)
+        return "/dashboard/user/{username}".format(username=username)
     
 
 class DashboardAdminView(UserPassesTestMixin, TemplateView):
