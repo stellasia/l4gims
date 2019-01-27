@@ -18,7 +18,7 @@ class QuestionsForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(QuestionsForm, self).__init__(*args, **kwargs)
-        print(self.fields["work_conditions"].choices)
+        #print(self.fields["work_conditions"].choices)
 
     def validate(self, data):
         # TODO: check that number of female is less than number of employees

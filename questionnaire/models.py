@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
@@ -5,6 +6,8 @@ from common.choices import *
 
 
 class Questionnaire(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
@@ -81,3 +84,8 @@ class Questionnaire(models.Model):
         verbose_name="Votre structure a-t-elle mis en place des conditions de travail favorisant le bien-être des collaborateurs ?",
         choices=WORK_CONDITIONS,
     )
+
+
+    @property
+    def completed(self):
+        return True
