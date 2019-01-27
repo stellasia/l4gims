@@ -7,9 +7,18 @@
 
 {{ user.first_name }}
 
+{% if not quest.completed %}
+<div class="go">
+    <a class="cta" href="/barometre/">Finir</a>
+</div>
+
+{% else %}
+
 <section>
-    <h2>Score global Luxembourg</h2>
-    
+    <h2>Mon score</h2>    
     {% include "charts/radar.html" %}
 </section>
+
+{% endif %}
+
 {% endblock %}

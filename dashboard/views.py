@@ -9,6 +9,10 @@ from django.shortcuts import get_object_or_404
 
 from common.choices import DIVERSITY_TYPE
 
+from questionnaire.models import Questionnaire
+from score.models import Score
+
+
 
 class DashboardHomeView(RedirectView):
     permanent = False
@@ -65,12 +69,18 @@ class DashboardUserView(UserPassesTestMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         username = self.kwargs.get("username")
         user = get_object_or_404(User, username=username)
+
+        q = Questionnaire.objects.filter(
+            user=user
+        ).first()
+
+        score = Score.objects.filter(
+            user=user
+        ).last()
         
-        random.seed(12)        
-        score_data = [
-            [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
-        ]
         return {
             "user": user,
-            "data": score_data,
-            }
+            "qest": q,
+            "last_score": score,
+            "data": score.data() if score else []
+        }

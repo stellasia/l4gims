@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 from common.choices import DIVERSITY_TYPE
@@ -25,6 +26,7 @@ class Action(models.Model):
     )
     
     # Nom Action / Type diversité / Processus RH / Date / Texte libre / Statut
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     name = models.CharField(unique=True, max_length=128)
     diversity_type = models.IntegerField(choices=DIVERSITY_TYPE)
