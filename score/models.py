@@ -21,3 +21,8 @@ class Score(models.Model):
             [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
             for _ in range(rep)
         ]
+
+    @property
+    def score(self):
+        if self.values:
+            return self.values.get("global")

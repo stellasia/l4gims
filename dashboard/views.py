@@ -36,12 +36,12 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         users = User.objects.filter(
             groups__name="Customer"
-            )
+        )
         last_created_users = users.filter(
-                date_joined__gte='2018-01-01',
+                date_joined__gte='2019-01-01',
             )
         users_no_form = users.filter(
-            )
+        )
         users_passive = users.filter(
             last_login__lte='2018-01-15',
         )
