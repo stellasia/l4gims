@@ -7,7 +7,7 @@
 
 {{ user.first_name }}
 
-{% if not quest.completed %}
+{% if not q.completed %}
 <div class="go">
     <a class="cta" href="/barometre/">Finir</a>
 </div>
@@ -15,10 +15,61 @@
 {% else %}
 
 <section>
-    <h2>Mon score</h2>    
+    <h2 class="shadow">Mon score</h2>    
     {% include "charts/radar.html" %}
+    <form action="/action/new/" method="get" class="center">
+	<input type="submit" value="Améliorer mon score" />
+    </form>
+
+</section>
+
+<section>
+    <h2 class="shadow">Mes actions en cours</h2>
+    {% if ongoing_actions  %}
+    <table id="actionTable" class="display">
+	<thead>
+	    <tr>
+		<th>Nom</th>
+		<th>Date de création</th>
+		<th>Date de fin prévue</th>
+		<th>Processus</th>
+		<th>Type de diversité</th>
+		<th>Status</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    {% for a in ongoing_actions %}
+	    <tr>
+		<td><a href="/action/{{ a.pk }}">{{ a.name }}</a></td>
+		<td> {{ a.created_on|date:"d/M/Y" }} </td>
+		<td> {{ a.planned_on|date:"d/M/Y" }} </td>
+		<td> {{ a.get_processus_display }} </td>
+		<td> {{ a.get_diversity_type_display }} </td>
+		<td> {{ a.get_status_display }} </td>
+	    </tr>
+	    {% endfor %}
+	</tbody>
+    </table>
+    {% else %}
+    Pas de données.
+    {% endif %}
+</section>
+
+<section>
+    <h2 class="shadow">Mes actions passées</h2>
+    Pas de données.
 </section>
 
 {% endif %}
+
+
+<script type="text/javascript">
+ $(document).ready( function () {
+     $('#actionTable').DataTable({
+	 searching: true,
+	 ordering:  true
+     });
+ } );
+</script>
 
 {% endblock %}

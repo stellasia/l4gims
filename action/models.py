@@ -19,10 +19,13 @@ class Action(models.Model):
         (10, "Relations professionnelles"),
     )
 
+    PLANED = 1
+    ONGOING = 2
+    COMPLETED = 3
     STATUS = (
-        (1, "Prévu"),
-        (2, "En cours"),
-        (3, "Fini"),
+        (PLANED, "Prévu"),
+        (ONGOING, "En cours"),
+        (COMPLETED, "Fini"),
     )
     
     # Nom Action / Type diversité / Processus RH / Date / Texte libre / Statut
@@ -32,5 +35,5 @@ class Action(models.Model):
     diversity_type = models.IntegerField(choices=DIVERSITY_TYPE)
     processus = models.IntegerField(choices=PROCESSUS)
     planned_on = models.DateField()
-    comment = models.TextField(null=True)
+    comment = models.TextField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS)

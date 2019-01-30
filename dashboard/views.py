@@ -11,6 +11,7 @@ from common.choices import DIVERSITY_TYPE
 
 from questionnaire.models import Questionnaire
 from score.models import Score
+from action.models import Action
 
 
 
@@ -36,14 +37,6 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         users = User.objects.filter(
             groups__name="Customer"
-            )
-        last_created_users = users.filter(
-                date_joined__gte='2018-01-01',
-            )
-        users_no_form = users.filter(
-            )
-        users_passive = users.filter(
-            last_login__lte='2018-01-15',
         )
 
         random.seed(13)        
@@ -51,10 +44,8 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
             [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
         ]
         return {
-            "last_created_users": last_created_users,
-            "users_no_form": users_no_form,
-            "users_passive": users_passive,
-            "data": score_data,
+            "users": users,
+            "score_data": score_data,
             }
 
 
@@ -77,10 +68,22 @@ class DashboardUserView(UserPassesTestMixin, TemplateView):
         score = Score.objects.filter(
             user=user
         ).last()
-        
+
+        actions = Action.objects.filter(
+            user=user,
+        )
+        past_actions = actions.filter(
+            status=Action.COMPLETED,
+            )
+        ongoing_actions = actions.exclude(
+            status=Action.COMPLETED,
+        )
         return {
             "user": user,
-            "qest": q,
+            "q": q,
             "last_score": score,
-            "data": score.data() if score else []
+            "score_data": score.data() if score else Score.data(),
+            "score_evolution_data": None,
+            "ongoing_actions": ongoing_actions,
+            "past_actions": past_actions,
         }

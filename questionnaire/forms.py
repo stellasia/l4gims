@@ -8,7 +8,7 @@ class QuestionsForm(forms.ModelForm):
 
     class Meta:
         model = Questionnaire
-        exclude = ['created_on', 'updated_on',]
+        exclude = ['created_on', 'updated_on', 'user']
         widgets = {
             "actions_for_diversity": forms.CheckboxSelectMultiple(),
             "process": forms.CheckboxSelectMultiple(),
@@ -17,10 +17,16 @@ class QuestionsForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(QuestionsForm, self).__init__(*args, **kwargs)
+        self.user = kwargs.pop("user", None)  # Pop the user off the kwargs passed in
+        super().__init__(*args, **kwargs)
         #print(self.fields["work_conditions"].choices)
 
-    def validate(self, data):
-        # TODO: check that number of female is less than number of employees
-        # and idem for disabled, etc...
-        return data
+    def save(self, force_insert=False, force_update=False, commit=True):
+        m = super().save(commit=False)
+        m.user = self.user
+        if commit:
+            m.save()
+        return m
+        
+    def clean(self):
+        return super().clean()

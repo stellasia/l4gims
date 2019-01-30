@@ -11,8 +11,16 @@ class NewActionsView(FormView):
     template_name = "actions.html"
     success_url = '/action/impact/'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        # Update the existing form kwargs dict with the request's user.
+        kwargs.update({"user": self.request.user})
+        return kwargs
+    
     def form_valid(self, form):
-        form.save()
+        item = form.save()
+        item.user = self.request.user
+        item.save()
         return super().form_valid(form)
 
 
