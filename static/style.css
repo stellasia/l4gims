@@ -26,6 +26,12 @@ header h1 {
     color: #CC0033;
 }
 
+.center {
+    position: relative;
+    margin: 1.5em auto;
+    text-align: center;
+}
+
 nav {
     background-color: #E9235E;
     border-radius: 3px;

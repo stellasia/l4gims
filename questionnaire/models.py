@@ -1,6 +1,8 @@
+import random
 from django.conf import settings
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+#from django.contrib.postgres.fields import ArrayField
+from array_field_select.fields import ArrayField
 
 from common.choices import *
 
@@ -66,26 +68,32 @@ class Questionnaire(models.Model):
         default=0,
     )
     actions_for_diversity = ArrayField(
-        models.IntegerField(),
-        choices=ACTIONS_FOR_DIVERSITY,
+        models.IntegerField(
+            choices=ACTIONS_FOR_DIVERSITY,
+        ),
         verbose_name="Vos actions en faveur de la diversité concernent:",
     )
     
     # section 3
     process = ArrayField(
-        models.IntegerField(),
-        choices=PROCESS,
+        models.IntegerField(
+            choices=PROCESS,
+        ),
         verbose_name="Choisissez dans la liste ci-dessous les processus dont dispose votre entreprise",
     )
 
     # section 4
     work_conditions = ArrayField(
-        models.IntegerField(),
+        models.IntegerField(
+            choices=WORK_CONDITIONS,
+        ),
         verbose_name="Votre structure a-t-elle mis en place des conditions de travail favorisant le bien-être des collaborateurs ?",
-        choices=WORK_CONDITIONS,
     )
 
 
     @property
     def completed(self):
         return True
+        r = random.random()
+        print(r)
+        return r > 0.5

@@ -11,6 +11,7 @@ from common.choices import DIVERSITY_TYPE
 
 from questionnaire.models import Questionnaire
 from score.models import Score
+from action.models import Action
 
 
 
@@ -44,7 +45,7 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
         ]
         return {
             "users": users,
-            "data": score_data,
+            "score_data": score_data,
             }
 
 
@@ -67,10 +68,22 @@ class DashboardUserView(UserPassesTestMixin, TemplateView):
         score = Score.objects.filter(
             user=user
         ).last()
-        
+
+        actions = Action.objects.filter(
+            user=user,
+        )
+        past_actions = actions.filter(
+            status=Action.COMPLETED,
+            )
+        ongoing_actions = actions.exclude(
+            status=Action.COMPLETED,
+        )
         return {
             "user": user,
-            "qest": q,
+            "q": q,
             "last_score": score,
-            "data": score.data() if score else []
+            "score_data": score.data() if score else Score.data(),
+            "score_evolution_data": None,
+            "ongoing_actions": ongoing_actions,
+            "past_actions": past_actions,
         }

@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="radarChart"></div>
+<div class="radarChart center"></div>
 
 <script src="{% static 'radarChart.js' %}"></script>
 <script>
@@ -10,7 +10,7 @@
  //////////////////////// Set-Up //////////////////////////////
  //////////////////////////////////////////////////////////////
 
- var margin = {top: 40, right: 100, bottom: 40, left: 100},
+ var margin = {top: 100, right: 100, bottom: 100, left: 100},
      width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
@@ -18,7 +18,7 @@
  ////////////////////////// Data //////////////////////////////
  //////////////////////////////////////////////////////////////
 
- var data = {{ data | safe }};
+ var data = {{ score_data | safe }};
  console.log(data);
  
  //////////////////////////////////////////////////////////////

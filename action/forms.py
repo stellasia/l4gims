@@ -7,12 +7,15 @@ from .models import Action
 class ActionsForm(forms.ModelForm):
     class Meta:
         model = Action
-        exclude = ["created_on", ]
-        
-    # action = forms.CharField(label="Actions (caractériser)", max_length=250)
-    # diversity_type = forms.ChoiceField(label="Type de diversité", choices=DIVERSITY_TYPE)
+        exclude = ["created_on", "user"]
 
-    # processus = forms.ChoiceField(label="Processus RH impliqué", choices=PROCESSUS)
-    # planned_on = forms.DateField(initial=datetime.date.today, label="Plannifée pour le")
-    # comment = forms.CharField(widget=forms.Textarea, label="Commentaire")
-    # status = forms.ChoiceField(label="Statut", choices=STATUS)
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop("user", None)  # Pop the user off the kwargs passed in
+        super().__init__(*args, **kwargs)
+
+    def save(self, force_insert=False, force_update=False, commit=True):
+        m = super().save(commit=False)
+        m.user = self.user
+        if commit:
+            m.save()
+        return m

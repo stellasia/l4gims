@@ -8,8 +8,16 @@ class QuestionnaireView(FormView):
     form_class = QuestionsForm
     template_name = "questionnaire.html"
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        # Update the existing form kwargs dict with the request's user.
+        kwargs.update({"user": self.request.user})
+        return kwargs
+
     def form_valid(self, form):
         item = form.save()
+        item.user = self.request.user
+        item.save()
         self.created_item_pk = item.pk
         return super().form_valid(form)
 

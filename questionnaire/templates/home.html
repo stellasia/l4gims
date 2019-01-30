@@ -11,10 +11,12 @@
 
 <img src="{% static 'diversity-day-1440x400.jpg' %}" alt="Image principale" width="900px">
 
+{% if request.user.is_anonymous %}
 <div class="go">
     <a class="cta" href="/accounts/signup/">Mesurer mon score</a>
     <a href="/accounts/login/">Déjà inscrit ?</a>
 </div>
+{% endif %}
 
 <p>
     Haec et huius modi quaedam innumerabilia ultrix facinorum impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius quoddam sublime numinis efficacis, humanarum mentium opinione lunari circulo superpositum, vel ut definiunt alii, substantialis tutela generali potentia partilibus praesidens fatis, quam theologi veteres fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt omnia despectare terrena.

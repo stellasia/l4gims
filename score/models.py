@@ -15,12 +15,14 @@ class Score(models.Model):
     values = JSONField()
     current = models.BooleanField(default=False)
 
+    @classmethod
     def data(self, seed=123, rep=1):
         random.seed(seed)
         score_data = [
             [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
             for _ in range(rep)
         ]
+        return score_data
 
     @property
     def score(self):

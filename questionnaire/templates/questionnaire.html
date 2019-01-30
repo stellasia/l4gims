@@ -10,6 +10,9 @@
     {% if form.errors %}
     <div class="errorlist">
 	Le formulaire comporte des erreurs, merci de vérifier ci-dessous.
+	<p>
+	    {{ form.errors }}
+	</p>
     </div>
     {% endif %}
 
