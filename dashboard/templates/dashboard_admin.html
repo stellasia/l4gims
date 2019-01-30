@@ -8,24 +8,29 @@
 {{ user.fist_name }}
 
 <section>
-    <h2>Derniers utilisateurs enregistrés</h2>
-    {% if last_created_users  %}
-    <table>
-	<tr>
-	    <th>Nom</th>
-	    <th>Date de création</th>
-	    <th>Dernière connexion</th>
-	    <th>Score</th>
-	</tr>
-	{% for user in last_created_users %}
-	<tr>
-	    <td><a href="/dashboard/user/{{ user.username }}">{{ user.username}}</a></td>
-	    <td> {{ user.date_joined|date:"d/M/Y" }} </td>
-	    <td> {{ user.last_login }} </td>
-	    <td> {{ user.score.score }} </td>
-	</tr>
-
-	{% endfor %}
+    <h2 class="shadow">Utilisateurs</h2>
+    {% if users  %}
+    <table id="userTable" class="display">
+	<thead>
+	    <tr>
+		<th>Nom</th>
+		<th>Date de création</th>
+		<th>Dernière connexion</th>
+		<th>Score</th>
+		<th>Badges</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    {% for user in users %}
+	    <tr>
+		<td><a href="/dashboard/user/{{ user.username }}">{{ user.username}}</a></td>
+		<td> {{ user.date_joined|date:"d/M/Y" }} </td>
+		<td> {{ user.last_login|date:"d/M/Y" }} </td>
+		<td> {{ user.score.score|default:"N.D" }} </td>
+		<td> - </td>
+	    </tr>
+	    {% endfor %}
+	</tbody>
     </table>
     {% else %}
     Pas de données.
@@ -33,56 +38,17 @@
 </section>
 
 <section>
-    <h2>Utilisateurs n'ayant pas complété le formulaire</h2>
-    {% if users_no_form %}
-    <table>
-	<tr>
-	    <th>Nom</th>
-	    <th>Date de création</th>
-	    <th>Dernière connexion</th>
-	    <th>Score</th>
-	</tr>
-	{% for user in last_created_users %}
-	<tr>
-	    <td><a href="/dashboard/user/{{ user.username }}">{{ user.username}}</a></td>
-	    <td> {{ user.date_joined|date:"d/M/Y" }} </td>
-	    <td> {{ user.last_login }} </td>
-	    <td> {{ user.score.score }} </td>
-	</tr>
-
-	{% endfor %}
-    </table>
-    {% else %}
-    Pas de données.
-    {% endif %}
-</section>
-
-<section>
-    <h2>Utilisateurs absents depuis longtemps</h2>
-    {% if users_passive %}
-    <table>
-	<tr>
-	    <th>Nom</th>
-	    <th>Date de création</th>
-	    <th>Dernière connexion</th>
-	</tr>
-	{% for user in last_created_users %}
-	<tr>
-	    <td><a href="/dashboard/user/{{ user.username }}">{{ user.username}}</a></td>	    
-	    <td> {{ user.date_joined|date:"d/M/Y" }} </td>
-	    <td> {{ user.last_login }} </td>
-	</tr>
-
-	{% endfor %}
-    </table>
-    {% else %}
-    Pas de données.
-    {% endif %}
-</section>
-
-<section>
-    <h2>Score global Luxembourg</h2>
+    <h2 class="shadow">Score global Luxembourg</h2>
     
     {% include "charts/radar.html" %}
 </section>
+
+<script type="text/javascript">
+ $(document).ready( function () {
+     $('#userTable').DataTable({
+	 searching: true,
+	 ordering:  true
+     });
+ } );
+</script>
 {% endblock %}

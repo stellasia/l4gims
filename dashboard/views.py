@@ -37,23 +37,13 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
         users = User.objects.filter(
             groups__name="Customer"
         )
-        last_created_users = users.filter(
-                date_joined__gte='2019-01-01',
-            )
-        users_no_form = users.filter(
-        )
-        users_passive = users.filter(
-            last_login__lte='2018-01-15',
-        )
 
         random.seed(13)        
         score_data = [
             [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
         ]
         return {
-            "last_created_users": last_created_users,
-            "users_no_form": users_no_form,
-            "users_passive": users_passive,
+            "users": users,
             "data": score_data,
             }
 
