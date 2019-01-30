@@ -119,6 +119,27 @@ footer .logos img {
     line-height: 100px; /* hauteur de ligne (identique) */    
 }
 
+h2 {
+    color: #E9235E;
+}
+
+.shadow {
+    display: block;
+    position: relative;
+}
+
+.shadow:after {
+    content:"";
+    background: linear-gradient(to right, rgba(134, 29, 84, 1) 0%,
+				rgba(255, 93, 177, 1) 47%,
+				rgba(255, 255, 255, 1) 100%);
+    display: block;
+    height:5px;
+    width: 500px;
+    position: absolute;
+    bottom: -2px;
+}
+    
 form {
     width: 90%;
     margin: auto;
