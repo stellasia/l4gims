@@ -25,4 +25,24 @@
     <h2 class="shadow">Impact sur le score</h2>    
     {% include "scoring/charts/radar.html" %}
 </section>
+
+<section>
+    <form action="#" method="get" class="center">
+	<input id="delete"  type="submit" value="Supprimer cette action" />
+    </form>
+</section>
+
+<script type="text/javascript">
+ $(document).ready( function () {
+     $('#delete').click(function(e) {
+	 if (window.confirm('Êtes-vous sûr de vouloir supprimer? Cette action de pourra pas être annulée')) {
+	     // They clicked Yes
+	     window.location = "/scoring/action/delete/{{ object.pk}}"
+	 }
+	 else {
+	     // They clicked no
+	 }
+     });
+ });
+</script>
 {% endblock %}

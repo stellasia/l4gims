@@ -1,10 +1,11 @@
 from django.urls import reverse
 from django.db.models import Q
-from django.shortcuts import render
+from django.views import View
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import RedirectView
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import ActionsForm, QuestionsForm
 from .models import Action, Score
@@ -70,5 +71,10 @@ class ActionDetailView(DetailView):
         return context
 
 
-class ActionDeleteView(RedirectView):
-    pass
+class ActionDeleteView(View):
+    def get(self, *args, **kwargs):
+        pk = kwargs.get("pk")
+        action = get_object_or_404(Action, pk=pk)
+        action.delete()
+        return redirect("/dashboard/")
+        
