@@ -9,10 +9,8 @@ from django.shortcuts import get_object_or_404
 
 from common.choices import DIVERSITY_TYPE
 
-from questionnaire.models import Questionnaire
-from score.models import Score
-from action.models import Action
-
+from scoring.models import Questionnaire, Score, Action
+from scoring.utils import get_global_score
 
 
 class DashboardHomeView(RedirectView):
@@ -21,7 +19,7 @@ class DashboardHomeView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         user = self.request.user
         username = user.username
-        if "IMS" in user.groups.values_list('name', flat=True):
+        if "AdminIMS" in user.groups.values_list('name', flat=True):
             return '/dashboard/admin/{username}'.format(username=username)
         return "/dashboard/user/{username}".format(username=username)
     
@@ -39,14 +37,11 @@ class DashboardAdminView(UserPassesTestMixin, TemplateView):
             groups__name="Customer"
         )
 
-        random.seed(13)        
-        score_data = [
-            [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
-        ]
+        score_data = get_global_score()
         return {
             "users": users,
-            "score_data": score_data,
-            }
+            "score_data": [score_data, score_data, ],
+        }
 
 
 class DashboardUserView(UserPassesTestMixin, TemplateView):
@@ -55,7 +50,7 @@ class DashboardUserView(UserPassesTestMixin, TemplateView):
     def test_func(self):
         username = self.kwargs.get("username")
         return (self.request.user.username == username
-                    or "IMS" in self.request.user.groups.values_list('name', flat=True))
+                    or "AdminIMS" in self.request.user.groups.values_list('name', flat=True))
     
     def get_context_data(self, *args, **kwargs):
         username = self.kwargs.get("username")
@@ -65,24 +60,33 @@ class DashboardUserView(UserPassesTestMixin, TemplateView):
             user=user
         ).first()
 
-        score = Score.objects.filter(
-            user=user
-        ).last()
+        try:
+            score = Score.objects.get(
+                current=True,
+                user=user
+            )
+        except Score.DoesNotExist:
+            score = None
 
         actions = Action.objects.filter(
             user=user,
         )
         past_actions = actions.filter(
             status=Action.COMPLETED,
-            )
+        )
         ongoing_actions = actions.exclude(
             status=Action.COMPLETED,
         )
+
+        score_data = score.get_sorted_score_values() if score else Score.random_data()
+        global_score = get_global_score()
+        score_data.append(global_score)
+
         return {
             "user": user,
             "q": q,
             "last_score": score,
-            "score_data": score.data() if score else Score.data(),
+            "score_data": score_data,
             "score_evolution_data": None,
             "ongoing_actions": ongoing_actions,
             "past_actions": past_actions,

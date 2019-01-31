@@ -9,18 +9,24 @@
 
 {% if not q.completed %}
 <div class="go">
-    <a class="cta" href="/barometre/">Finir</a>
+    <a class="cta" href="/scoring/measure/">Finir</a>
 </div>
 
 {% else %}
 
 <section>
     <h2 class="shadow">Mon score</h2>    
-    {% include "charts/radar.html" %}
-    <form action="/action/new/" method="get" class="center">
+    {% include "scoring/charts/radar.html" %}
+    <form action="/scoring/action/new/" method="get" class="center">
 	<input type="submit" value="Améliorer mon score" />
     </form>
+</section>
 
+<section>
+    <h2 class="shadow">Mes badges</h2>
+    <form action="/scoring/action/new/" method="get" class="center">
+	<input type="submit" value="Améliorer mon score" />
+    </form>
 </section>
 
 <section>
@@ -40,7 +46,7 @@
 	<tbody>
 	    {% for a in ongoing_actions %}
 	    <tr>
-		<td><a href="/action/{{ a.pk }}">{{ a.name }}</a></td>
+		<td><a href="/scoring/action/{{ a.pk }}">{{ a.name }}</a></td>
 		<td> {{ a.created_on|date:"d/M/Y" }} </td>
 		<td> {{ a.planned_on|date:"d/M/Y" }} </td>
 		<td> {{ a.get_processus_display }} </td>
@@ -53,6 +59,9 @@
     {% else %}
     Pas de données.
     {% endif %}
+    <form action="/scoring/action/similarity/" method="get" class="center">
+	<input type="submit" value="Suggestion d'action" />
+    </form>    
 </section>
 
 <section>
