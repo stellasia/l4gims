@@ -12,4 +12,5 @@ urlpatterns = [
     path('scoring/action/new/', views.ActionNewView.as_view(), name="action_new",),
     path('scoring/action/<int:pk>/', views.ActionDetailView.as_view(), name="action_detail",),
     path('scoring/action/delete/<int:pk>', views.ActionDeleteView.as_view(), name="action_delete",),
+    path('scoring/action/similarity/', views.ActionSimilarView.as_view(), name="action_sim",),
 ]

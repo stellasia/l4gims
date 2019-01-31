@@ -78,3 +78,12 @@ class ActionDeleteView(View):
         action.delete()
         return redirect("/dashboard/")
         
+
+
+class ActionSimilarView(ListView):
+    model = Action
+    template_name = "scoring/action/similarity.html"
+
+    def get_queryset(self):
+        user = self.request.user
+        return []
