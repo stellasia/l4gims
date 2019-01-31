@@ -1,4 +1,5 @@
 import random
+from collections import OrderedDict
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
@@ -116,14 +117,8 @@ class Score(models.Model):
     @classmethod
     def random_data(self, seed=123, rep=1):
         #random.seed(seed)
-        score_data = [
-            [{"axis": d, "value": random.random()} for v, d in DIVERSITY_TYPE]
-            for _ in range(rep)
-        ]
-        return [
-            sorted(i , key = lambda e: e["axis"] )
-            for i in score_data
-            ]
+        score_data = dict( (d, random.random()) for k, d in DIVERSITY_TYPE)
+        return OrderedDict(( sorted(score_data.items())))
     
     @property
     def global_score(self):
@@ -135,13 +130,16 @@ class Score(models.Model):
         return s / len(self.values)
 
     def get_score_dict(self):
-        s = self.values[0]
-        return dict( [ (d["axis"], d["value"]) for d in s])
+        s = self.values
+        return s
 
     def get_sorted_score_values(self):
+        return OrderedDict(sorted(self.values.items()))
+
+    def get_data_for_radar(self):
+        data = self.get_sorted_score_values()
         return [
-            sorted(i , key = lambda e: e["axis"] )
-            for i in self.values
+            {"axis": k, "value": v} for k, v in data.items()
             ]
 
     def badges(self):
@@ -185,13 +183,14 @@ class Action(models.Model):
     def update_score(self):
         score = Score.objects.get(user=self.user, current=True)
         score_data = score.get_score_dict()
-        current_score_diversity = score_data.get(self.get_diversity_type_display())
+        d = self.get_diversity_type_display()
+        current_score_diversity = score_data.get(d)
         new_score_diversity = current_score_diversity * 1.1
-        score_data[self.diversity_type] = new_score_diversity
+        score_data[d] = new_score_diversity
         Score.objects.create(
             user = self.user,
             expected_after_action = self,
             expiration_date = self.planned_on + relativedelta(month=3),
             current = False,
-            values = [score_data],
+            values = score_data,
         )

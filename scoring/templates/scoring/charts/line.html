@@ -1,0 +1,53 @@
+{% load static %}
+<style>
+
+ .axis path,
+ .axis line {
+     fill: none;
+     stroke: #000;
+     shape-rendering: crispEdges;
+ }
+
+ .grid path,
+ .grid line {
+     fill: none;
+     stroke: rgba(0, 0, 0, 0.25);
+     shape-rendering: crispEdges;
+ }
+
+ .x.axis path {
+     display: none;
+ }
+
+ .line {
+     fill: none;
+     stroke-width: 2.5px;
+ }
+
+</style>
+
+<div class="lineChart center"></div>
+
+<script src="{% static 'lineChart.js' %}"></script>
+<script>
+ var data = {{ evol_data | safe }};
+ /*
+    [ { label: "Data Set 1", 
+    x: [0, 1, 2, 3, 4], 
+    y: [0, 1, 2, 3, 4] }, 
+    { label: "Data Set 2", 
+    x: [0, 1, 2, 3, 4], 
+    y: [0, 1, 4, 9, 16] } ] ;
+  */
+ 
+ var xy_chart = d3_xy_chart()
+     .width(960)
+     .height(500)
+     .xlabel("X Axis")
+     .ylabel("Y Axis") ;
+
+ var svg = d3.select(".lineChart").append("svg")
+	     .datum(data)
+	     .call(xy_chart) ;
+
+</script>

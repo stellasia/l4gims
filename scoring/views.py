@@ -1,11 +1,13 @@
 from django.urls import reverse
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
+from django.views.generic.base import RedirectView
 
 from .forms import ActionsForm, QuestionsForm
-from .models import Action
+from .models import Action, Score
 
 
 class QuestionnaireView(FormView):
@@ -29,12 +31,12 @@ class QuestionnaireView(FormView):
         return "/dashboard/user/%s" % self.request.user.username
 
 
-class NewActionsView(FormView):
+class ActionNewView(FormView):
     form_class = ActionsForm
     template_name = "scoring/action/new_action.html"
 
     def get_success_url(self):
-        return "/dashboard/user/%s" % self.request.user.username
+        return "/scoring/action/%s"  % self.action.pk
         
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -47,10 +49,26 @@ class NewActionsView(FormView):
         action.user = self.request.user
         action.save()
         action.update_score()
+        self.action = action
         return super().form_valid(form)
-
 
 
 class ActionDetailView(DetailView):
     model = Action
     template_name = "scoring/action/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        scores = Score.objects.filter(
+            user = self.object.user,
+        ).filter(
+            Q(current=True) | Q(expected_after_action = self.object)
+        )
+        context['score_data'] =  [
+            s.get_data_for_radar() for s in scores
+        ]
+        return context
+
+
+class ActionDeleteView(RedirectView):
+    pass

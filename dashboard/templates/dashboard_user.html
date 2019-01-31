@@ -24,9 +24,28 @@
 
 <section>
     <h2 class="shadow">Mes badges</h2>
+    <div class="badges-box center">
+	<div class="badge">
+	    <h4>Egalité H/F OR</h4>
+	    <img src="{% static 'badges/gender_gold.png' %}" alt="Gender gold">
+	</div>
+	<div class="badge">
+	    <h4>Race SILVER</h4>
+	    <img src="{% static 'badges/race_silver.png' %}" alt="Race silver">
+	</div>	
+	<div class="badge">
+	    <h4>Age BRONZE</h4>
+	    <img src="{% static 'badges/age_bronze.png' %}" alt="Age bronze">
+	</div>
+    </div>    
     <form action="/scoring/action/new/" method="get" class="center">
 	<input type="submit" value="Améliorer mon score" />
     </form>
+</section>
+
+<section>
+    <h2 class="shadow">Evolution de mon score au cours du temps</h2>
+    {% include "scoring/charts/line.html" %}
 </section>
 
 <section>
